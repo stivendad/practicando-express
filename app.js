@@ -9,7 +9,7 @@ const app = express();
 const port = 8080
 
 // Servir contenido estático
-app.use( express.static('public') )
+app.use( express.static('public_template') )
 
 
 app.get('/', (req, res) => {
