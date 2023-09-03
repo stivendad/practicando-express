@@ -1,5 +1,6 @@
 import express from "express";
 import hbs from "hbs";
+import 'dotenv/config';
 
 import * as url from 'url';
 const __filename = url.fileURLToPath(import.meta.url);
@@ -7,7 +8,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 
 const app = express();
-const port = 8080
+const port = process.env.PORT;
 
 
 
