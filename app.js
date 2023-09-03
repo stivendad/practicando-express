@@ -9,24 +9,36 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
 const port = 8080
 
+
+
 // Usar hbs
 app.set('view engine', 'hbs');
-
+// Parciales en hbs
+hbs.registerPartials(__dirname + '/views/partials')
 
 // Servir contenido estático
 app.use( express.static('public') )
 
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home',{
+        nombre: "Daniel Tejada",
+        titulo: "Curso de Node"
+    });
 })
 
 app.get('/generic', (req, res) => {
-    res.sendFile(__dirname + '/public/generic.html')
+    res.render('generic', {
+        nombre: "Daniel Tejada",
+        titulo: "Generic Page"
+    })
 })
 
 app.get('/elements', (req, res) => {
-    res.sendFile(__dirname + '/public/elements.html')
+    res.render('elements', {
+        nombre: "Daniel Tejada",
+        titulo: "Element Page"
+    })
 })
 
 app.get('/', (req, res) => {
